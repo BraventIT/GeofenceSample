@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geofence.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Geofence.Plugin.CrossGeofence">
+            <summary>
+            Cross platform Geofence implemenations
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.IsInitialized">
+            <summary>
+            Checks if plugin is initialized
+            </summary>
+        </member>
+        <member name="F:Geofence.Plugin.CrossGeofence.Id">
+            <summary>
+            Plugin id
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofenceListener">
+            <summary>
+            Geofence state events listener
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofencePriority">
+            <summary>
+            Geofence location accuracy priority
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.SmallestDisplacement">
+            <summary>
+            Smallest displacement for location updates
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestNotificationPermission">
+            <summary>
+            Request the user for Notifications Permission.  Set to false if this is already handled in the client application.
+            </summary>
+            <value><c>true</c> if request notification permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestLocationPermission">
+            <summary>
+            Request the user for Location Services Permissions. Set to false if this is already handled in the client application. 
+            </summary>
+            <value><c>true</c> if request location permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Geofence.Plugin.CrossGeofence.Initialize``1(Geofence.Plugin.Abstractions.GeofencePriority,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes geofence plugin
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="priority"></param>
+            <param name="smallestDisplacement"></param>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceImplementation">
+            <summary>
+            Implementation for Geofence
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.Regions">
+            <summary>
+            Monitored regions
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.GeofenceResults">
+            <summary>
+            Geofence results
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.IsMonitoring">
+            <summary>
+            Checks if is monitoring regions
+            </summary>
+        </member>
+        <member name="F:Geofence.Plugin.GeofenceImplementation.isPromptingLocationPermission">
+            <summary>
+            This checks if we are currently prompting for location permissions to avoid the double prompt from multiple simultaneous regions
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.RequestNotificationPermission">
+            <summary>
+            Set this flag to false if the application is already asking the user for permissions to send Notifications.
+            </summary>
+            <value><c>true</c> if request notification permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.RequestLocationPermission">
+            <summary>
+            Set this flag to false if the application is already prompting the user to use Location Services.
+            </summary>
+            <value><c>true</c> if request location permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.LastKnownLocation">
+            <summary>
+            Last known location
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.#ctor">
+            <summary>
+            Geofence plugin iOS implementation
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.CalculateDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates distance between two locations
+            </summary>
+            <param name="lat1"></param>
+            <param name="lon1"></param>
+            <param name="lat2"></param>
+            <param name="lon2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.CheckIfStayed(System.String)">
+            <summary>
+            Checks if has passed to stayed state
+            </summary>
+            <param name="regionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.GeofenceRegionExists(System.String)">
+            <summary>
+            Checks if a GeofenceRegion exists in the monitored regions
+            </summary>
+            <returns><c>true</c>, if it exists, <c>false</c> otherwise.</returns>
+            <param name="regionId">Region identifier.</param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.AvailableForMonitoring">
+            <summary>
+            Checks if is available for monitoring
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StartMonitoring(Geofence.Plugin.Abstractions.GeofenceCircularRegion)">
+            <summary>
+            Starts monitoring region
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StartMonitoring(System.Collections.Generic.IList{Geofence.Plugin.Abstractions.GeofenceCircularRegion})">
+            <summary>
+            Start monitoring regions
+            </summary>
+            <param name="regions"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.GetCurrentRegions(System.Collections.Generic.IList{Geofence.Plugin.Abstractions.GeofenceCircularRegion})">
+            <summary>
+            Get current 20 monitored regions.
+            </summary>
+            <param name="regions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoringAllRegions">
+            <summary>
+            Stops monitoring all regions
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoring(System.String)">
+            <summary>
+            Stops monitoring region
+            </summary>
+            <param name="regionIdentifier"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoring(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Stop monitoring regions
+            </summary>
+            <param name="regionIdentifiers"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.IsLocationEnabled(System.Action{System.Boolean})">
+            <summary>
+            For iOS, it's AuthorizedAlways or it's not authorized.
+            </summary>
+            <returns>true</returns>
+            <c>false</c>
+            <param name="returnAction">Return action.</param>
+        </member>
+    </members>
+</doc>

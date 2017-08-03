@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geofence.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Geofence.Plugin.CrossGeofence">
+            <summary>
+            Cross platform Geofence implemenations
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.IsInitialized">
+            <summary>
+            Checks if plugin is initialized
+            </summary>
+        </member>
+        <member name="F:Geofence.Plugin.CrossGeofence.Id">
+            <summary>
+            Plugin id
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofenceListener">
+            <summary>
+            Geofence state events listener
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofencePriority">
+            <summary>
+            Geofence location accuracy priority
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.SmallestDisplacement">
+            <summary>
+            Smallest displacement for location updates
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestNotificationPermission">
+            <summary>
+            Request the user for Notifications Permission.  Set to false if this is already handled in the client application.
+            </summary>
+            <value><c>true</c> if request notification permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestLocationPermission">
+            <summary>
+            Request the user for Location Services Permissions. Set to false if this is already handled in the client application. 
+            </summary>
+            <value><c>true</c> if request location permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.IconResource">
+            <summary>
+            Icon resource used for notification
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.Color">
+            <summary>
+            ARGB Color used for notification
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.LargeIconResource">
+            <summary>
+            Large icon resource used for notification
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.SoundUri">
+            <summary>
+            Sound for notification
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.LocationUpdatesInterval">
+            <summary>
+            Location updates internal
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.FastestLocationUpdatesInterval">
+            <summary>
+            Fastest location updates interval
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.CrossGeofence.Initialize``1(Geofence.Plugin.Abstractions.GeofencePriority,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes geofence plugin
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="priority"></param>
+            <param name="smallestDisplacement"></param>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceBootReceiver">
+            <summary>
+            GeofenceBootReceiver class
+            Receives BOOT_COMPLETED event
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceBootReceiver.OnReceive(Android.Content.Context,Android.Content.Intent)">
+            <summary>
+            On boot completed restores all persisted regions
+            </summary>
+            <param name="context"></param>
+            <param name="intent"></param>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceBroadcastReceiver">
+            <summary>
+            GeofenceBootReceiver class
+            Receive geofence updates
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceBroadcastReceiver.OnReceive(Android.Content.Context,Android.Content.Intent)">
+            <summary>
+            On geofence update received fires an intent to be handled by GeofenceTransitionsIntentService
+            </summary>
+            <param name="context"></param>
+            <param name="intent"></param>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceImplementation">
+            <summary>
+            Implementation for Feature
+            </summary>
+            
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.Regions">
+            <summary>
+            Get all regions been monitored
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.GeofenceResults">
+            <summary>
+            Get geofence state change results.
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.LastKnownLocation">
+            <summary>
+            Get last known location
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.IsMonitoring">
+            <summary>
+            Checks if region are been monitored
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceImplementation.LocationHasError">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Geofence.Plugin.GeofenceImplementation"/> location has error.
+            </summary>
+            <value><c>true</c> if location has error; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.#ctor">
+            <summary>
+            Android Geofence plugin implementation
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StartMonitoring(Geofence.Plugin.Abstractions.GeofenceCircularRegion)">
+            <summary>
+            Starts monitoring specified region
+            </summary>
+            <param name="region"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StartMonitoring(System.Collections.Generic.IList{Geofence.Plugin.Abstractions.GeofenceCircularRegion})">
+            <summary>
+            Starts geofence monitoring on specified regions
+            </summary>
+            <param name="regions"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoring(System.String)">
+            <summary>
+            Stops monitoring a specific geofence region
+            </summary>
+            <param name="regionIdentifier"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoring(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Stops monitoring specified geofence regions
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.StopMonitoringAllRegions">
+            <summary>
+            Stops monitoring all geofence regions
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.OnConnectionFailed(Android.Gms.Common.ConnectionResult)">
+            <summary>
+            Google play connection failed handling
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.OnConnected(Android.OS.Bundle)">
+            <summary>
+            On Google play services Connection handling
+            </summary>
+            <param name="connectionHint"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.OnResult(Java.Lang.Object)">
+            <summary>
+            On Geofence Request Result
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceImplementation.OnConnectionSuspended(System.Int32)">
+            <summary>
+            Connection suspended handling
+            </summary>
+            <param name="cause"></param>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceLocationListener">
+            <summary>
+            GeofenceLocationListener class
+            Listens to location updates
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.GeofenceLocationListener.SharedInstance">
+            <summary>
+            Location listener instance
+            </summary>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceLocationService">
+            <summary>
+            GeofenceLocationService
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceLocationService.OnCreate">
+            <summary>
+            Location Service OnCreate method
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceLocationService.OnBind(Android.Content.Intent)">
+            <summary>
+            
+            </summary>
+            <param name="intent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceLocationService.OnLocationChanged(Android.Locations.Location)">
+            <summary>
+            Location changed method
+            </summary>
+            <param name="location"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceStore.#ctor">
+            <summary>
+            Create the SharedPreferences storage with private access only.
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceStore.Get(System.String)">
+            <summary>
+            Returns a stored geofence by its ID, or returns null if it's not found
+            </summary>
+            <returns>A SimpleGeofence defined by its center and radius, or null if the ID is invalid</returns>
+            <param name="id">The ID of a stored Geofence</param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceStore.Save(Geofence.Plugin.Abstractions.GeofenceCircularRegion)">
+            <summary>
+            Save a geofence
+            </summary>
+            <param name="region">The GeofenceCircularRegion with the values you want to save in SharedPreferemces</param>
+        </member>
+        <member name="T:Geofence.Plugin.GeofenceTransitionsIntentService">
+            <summary>
+            GeofenceTransitionsIntentService class
+            Service that handles geofence events
+            </summary>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceTransitionsIntentService.OnHandleIntent(Android.Content.Intent)">
+            <summary>
+            Handles geofence intent arrival
+            </summary>
+            <param name="intent"></param>
+        </member>
+        <member name="M:Geofence.Plugin.GeofenceTransitionsIntentService.CreateNotification(System.String,System.String)">
+            <summary>
+            Create local notification
+            </summary>
+            <param name="title"></param>
+            <param name="message"></param>
+        </member>
+    </members>
+</doc>

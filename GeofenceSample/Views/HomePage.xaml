@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GeofenceSample.Views.HomePage"
+    xmlns:local="clr-namespace:GeofenceSample.Views;assembly=GeofenceSample">
+<local:MapPage Title="Map" Icon="map"/>
+      <local:EventsPage Title="Events" Icon="region" />
+</TabbedPage>

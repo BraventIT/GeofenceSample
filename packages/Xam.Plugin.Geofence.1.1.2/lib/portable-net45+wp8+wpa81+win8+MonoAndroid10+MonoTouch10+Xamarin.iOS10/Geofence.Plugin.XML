@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Geofence.Plugin</name>
+    </assembly>
+    <members>
+        <member name="T:Geofence.Plugin.CrossGeofence">
+            <summary>
+            Cross platform Geofence implemenations
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.IsInitialized">
+            <summary>
+            Checks if plugin is initialized
+            </summary>
+        </member>
+        <member name="F:Geofence.Plugin.CrossGeofence.Id">
+            <summary>
+            Plugin id
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofenceListener">
+            <summary>
+            Geofence state events listener
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.GeofencePriority">
+            <summary>
+            Geofence location accuracy priority
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.SmallestDisplacement">
+            <summary>
+            Smallest displacement for location updates
+            </summary>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestNotificationPermission">
+            <summary>
+            Request the user for Notifications Permission.  Set to false if this is already handled in the client application.
+            </summary>
+            <value><c>true</c> if request notification permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.RequestLocationPermission">
+            <summary>
+            Request the user for Location Services Permissions. Set to false if this is already handled in the client application. 
+            </summary>
+            <value><c>true</c> if request location permission; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Geofence.Plugin.CrossGeofence.Initialize``1(Geofence.Plugin.Abstractions.GeofencePriority,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes geofence plugin
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="priority"></param>
+            <param name="smallestDisplacement"></param>
+        </member>
+        <member name="P:Geofence.Plugin.CrossGeofence.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+    </members>
+</doc>
